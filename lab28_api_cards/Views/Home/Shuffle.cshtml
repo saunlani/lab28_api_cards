@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Shuffle";
+}
+
+<h2>Shuffle</h2>
+
+<table>
+    @if (ViewBag.CardsRemaining >= 5)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            <img src="@ViewBag.cards[i]["image"]" width="100" height="140" />
+            <tr>@ViewBag.cards[i]["value"] @ViewBag.cards[i]["suit"]</tr>
+        }
+
+    }
+    else if (ViewBag.CardsRemaining < 5 && ViewBag.CardsRemaining > 0)
+    {
+        int remains = ViewBag.CardsRemaining;
+
+        for (int i = 0; i < remains; i++)
+        {
+            <img src="@ViewBag.cards[i]["image"]" width="100" height="140" />
+            <tr>@ViewBag.cards[i]["value"] @ViewBag.cards[i]["suit"]</tr>
+        }
+    }
+</table>
